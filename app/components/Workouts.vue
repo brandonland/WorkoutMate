@@ -17,7 +17,7 @@
 export default {
   computed: {
     message() {
-      return "Exercises";
+      return "Workouts";
     }
   }
 };
