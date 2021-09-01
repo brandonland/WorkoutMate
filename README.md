@@ -19,7 +19,7 @@ There will be no data sent online anywhere—your data is _your_ data, solely fo
 I want this app to just as much be a helper during workouts as it will be for big-picture, long-term planning and the setting of goals. There may eventually
 involve _gamification_ to spice things up as a sort of end-game feature (after the app's core features are implemented). 
 
-## List of Features to Add
+## Features
 
 - [ ] Workout session creation (a collection of exercises and/or stretches)
   - [ ] Create workouts by selecting existing exercises and/or stretches from a preexisting list.
