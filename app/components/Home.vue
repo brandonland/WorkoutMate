@@ -20,6 +20,7 @@
 
 <script>
 import Exercises from "./Exercises";
+import Workouts from "./Workouts";
 
 export default {
   components: {
