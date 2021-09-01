@@ -1,8 +1,6 @@
 <template>
   <Page>
-    <ActionBar>
-      <Label text="Exercises" />
-    </ActionBar>
+    <ActionBar :title="message" />
 
     <GridLayout>
       <Label class="info">

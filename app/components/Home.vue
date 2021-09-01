@@ -1,8 +1,6 @@
 <template>
   <Page>
-    <ActionBar>
-      <Label text="Home" />
-    </ActionBar>
+    <ActionBar :title="message" />
 
     <GridLayout>
       <Label class="info">
@@ -12,11 +10,28 @@
         </FormattedString>
       </Label>
     </GridLayout>
+
+    <StackLayout>
+      <Button text="Exercises" @tap="$navigateTo(exercisesPage)" />
+      <Button text="Workouts" @tap="$navigateTo(workoutsPage)" />
+    </StackLayout>
   </Page>
 </template>
 
 <script>
+import Exercises from "./Exercises";
+
 export default {
+  components: {
+    Exercises,
+    Workouts
+  },
+  data() {
+    return {
+      exercisesPage: Exercises,
+      workoutsPage: Workouts
+    };
+  },
   computed: {
     message() {
       return "Home";
