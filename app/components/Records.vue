@@ -8,7 +8,7 @@
       />
     </ActionBar>
 
-    <GridLayout>
+    <StackLayout>
       <Label class="info">
         <FormattedString>
           <Span class="fas" text.decode="&#xf135; " />
@@ -16,35 +16,15 @@
         </FormattedString>
       </Label>
       <Label class="description" text="Work in progress" />
-    </GridLayout>
-    <FlexboxLayout flexDirection="column" backgroundColor="#fcfcfc">
-      <Label height="70">
-        <FormattedString>
-          <Span class="fas" text.decode="&#xf135; " />
-          <Span :text="message" />
-        </FormattedString>
-      </Label>
-
-      <Button text="Custom Legs Workout" @tap="$navigateTo(workoutPage)" />
-      <Button text="Chest & Back" @tap="$navigateTo(workoutPage)" />
-      <Button text="Arms 1" @tap="$navigateTo(workoutPage)" />
-      <Button text="Crazy Abs 9000" @tap="$navigateTo(workoutPage)" />
-    </FlexboxLayout>
+    </StackLayout>
   </Page>
 </template>
 
 <script>
-import Workout from "./Workout";
-
 export default {
-  data() {
-    return {
-      workoutPage: Workout
-    };
-  },
   computed: {
     message() {
-      return "Workouts";
+      return "Records";
     }
   }
 };

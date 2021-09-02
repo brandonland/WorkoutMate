@@ -1,28 +1,40 @@
 <template>
   <Page>
-    <ActionBar :title="message" />
+    <ActionBar :title="message"></ActionBar>
 
     <GridLayout>
-      <Label class="info">
-        <FormattedString>
-          <Span class="fas" text.decode="&#xf135; " />
-          <Span :text="message" />
-        </FormattedString>
-      </Label>
+      <StackLayout>
+        <Label class="info">
+          <FormattedString>
+            <Span class="fas" text.decode="&#xf135; " />
+            <Span :text="message" />
+          </FormattedString>
+        </Label>
+        <Button text="Exercises" @tap="$navigateTo(exercisesPage)" />
+        <Button text="Workouts" @tap="$navigateTo(workoutsPage)" />
+        <Button text="Analysis" @tap="$navigateTo(analysisPage)" />
+        <Button text="BodyTracker" @tap="$navigateTo(bodyTrackerPage)" />
+        <Button text="Calendar" @tap="$navigateTo(calendarPage)" />
+        <Button text="Goals" @tap="$navigateTo(goalsPage)" />
+        <Button text="Records" @tap="$navigateTo(recordsPage)" />
+        <Button text="Settings" @tap="$navigateTo(settingsPage)" />
+      </StackLayout>
     </GridLayout>
-
-    <StackLayout>
-      <Button text="Exercises" @tap="$navigateTo(exercisesPage)" />
-      <Button text="Workouts" @tap="$navigateTo(workoutsPage)" />
-    </StackLayout>
   </Page>
 </template>
 
 <script>
 import Exercises from "./Exercises";
 import Workouts from "./Workouts";
+import Analysis from "./Analysis";
+import BodyTracker from "./BodyTracker";
+import Calendar from "./Calendar";
+import Goals from "./Goals";
+import Records from "./Records";
+import Settings from "./Settings";
 
 export default {
+  name: "Home",
   components: {
     Exercises,
     Workouts
@@ -30,8 +42,20 @@ export default {
   data() {
     return {
       exercisesPage: Exercises,
-      workoutsPage: Workouts
+      workoutsPage: Workouts,
+      analysisPage: Analysis,
+      bodyTrackerPage: BodyTracker,
+      calendarPage: Calendar,
+      goalsPage: Goals,
+      recordsPage: Records,
+      settingsPage: Settings
     };
+  },
+  methods: {
+    isHomePage() {
+      return true;
+      // this.$
+    }
   },
   computed: {
     message() {
@@ -51,6 +75,8 @@ export default {
 
 .info {
   font-size: 20;
+  margin-top: 20;
+  margin-bottom: 10;
   horizontal-align: center;
   vertical-align: center;
 }
