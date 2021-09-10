@@ -1,16 +1,16 @@
 <template>
-  <Page>
+  <Page class="ns-dark">
     <ActionBar :title="message">
       <ActionItem
         @tap="onTapHamburger()"
         ios.systemIcon="4"
-        android.icon="@drawable/ic_baseline_menu_24"
+        icon="res://ic_baseline_menu_white_24"
         ios.position="left"
       />
     </ActionBar>
 
     <RadSideDrawer ref="drawer">
-      <StackLayout ~drawerContent backgroundColor="#ffffff">
+      <StackLayout ~drawerContent>
         <Label class="drawer-header" text="Drawer" />
 
         <Label class="drawer-item" text="Item 1" />
@@ -20,68 +20,75 @@
 
       <GridLayout ~mainContent>
         <StackLayout>
-          <Label class="info">
+          <!-- <Label class="info">
             <FormattedString>
               <Span class="fas" text.decode="&#xf135; " />
               <Span :text="message" />
             </FormattedString>
-          </Label>
+          </Label> -->
           <GridLayout columns="*, *, *" rows="auto, auto, auto">
+            <Button
+              text="Routines"
+              @tap="$navigateTo(links.Routine)"
+              height="100"
+              row="0"
+              column="0"
+            />
             <Button
               text="Workouts"
               @tap="$navigateTo(links.Workouts)"
               height="100"
               row="0"
-              column="0"
+              column="1"
             />
             <Button
               text="Exercises"
               @tap="$navigateTo(links.Exercises)"
               height="100"
               row="0"
-              column="1"
+              column="2"
             />
             <Button
               text="Analysis"
               @tap="$navigateTo(links.Analysis)"
               height="100"
-              row="0"
-              column="2"
+              row="1"
+              column="0"
             />
             <Button
               text="Body Tracker"
               @tap="$navigateTo(links.BodyTracker)"
               height="100"
               row="1"
-              column="0"
+              column="1"
             />
             <Button
               text="Calendar"
               @tap="$navigateTo(links.Calendar)"
               height="100"
               row="1"
-              column="1"
+              column="2"
             />
             <Button
               text="Goals"
               @tap="$navigateTo(links.Goals)"
               height="100"
-              row="1"
-              column="2"
+              row="2"
+              column="0"
             />
             <Button
               text="Records"
               @tap="$navigateTo(links.Records)"
               height="100"
               row="2"
-              column="0"
+              column="1"
             />
             <Button
               text="Settings"
               @tap="$navigateTo(links.Settings)"
               height="100"
               row="2"
-              column="1"
+              column="2"
             />
           </GridLayout>
         </StackLayout>
@@ -91,6 +98,7 @@
 </template>
 
 <script>
+import Routine from "./Routine";
 import Workouts from "./Workouts";
 import Exercises from "./Exercises";
 import Analysis from "./Analysis";
@@ -100,11 +108,10 @@ import Goals from "./Goals";
 import Records from "./Records";
 import Settings from "./Settings";
 
-import RadSideDrawer from "nativescript-ui-sidedrawer/vue";
-
 export default {
   name: "Home",
   components: {
+    Routine,
     Exercises,
     Workouts,
     Analysis,
@@ -118,6 +125,7 @@ export default {
     return {
       msg: "Hello there world",
       links: {
+        Routine,
         Exercises,
         Workouts,
         Analysis,
@@ -255,15 +263,11 @@ export default {
       return this.components.filter(c => c.name === compName);
     },
     onTapHamburger() {
-      console.log("Tapping hamburger!");
-      console.log("nativeView: ", this.$refs.drawer.nativeView);
-      this.$refs.drawer.nativeView.showDrawer();
-    },
-    onOpenDrawerTap() {
-      this.$refs.drawer.nativeView.showDrawer();
-    },
-    onCloseDrawerTap() {
-      this.$refs.drawer.nativeView.closeDrawer();
+      if (!this.$refs.drawer.nativeView.getIsOpen()) {
+        this.$refs.drawer.nativeView.showDrawer();
+      } else {
+        this.$refs.drawer.nativeView.closeDrawer();
+      }
     }
   },
   computed: {
@@ -288,5 +292,10 @@ export default {
   margin-bottom: 10;
   horizontal-align: center;
   vertical-align: center;
+}
+
+.ns-dark .drawer-header,
+.ns-dark .drawer-item {
+  color: #fff;
 }
 </style>
