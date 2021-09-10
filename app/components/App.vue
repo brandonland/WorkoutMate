@@ -1,75 +1,92 @@
 <template>
   <Page>
-    <ActionBar :title="message"></ActionBar>
+    <ActionBar :title="message">
+      <ActionItem
+        @tap="onTapHamburger()"
+        ios.systemIcon="4"
+        android.icon="@drawable/ic_baseline_menu_24"
+        ios.position="left"
+      />
+    </ActionBar>
 
-    <GridLayout>
-      <StackLayout>
-        <Label class="info">
-          <FormattedString>
-            <Span class="fas" text.decode="&#xf135; " />
-            <Span :text="message" />
-          </FormattedString>
-        </Label>
-        <GridLayout columns="*, *, *" rows="auto, auto, auto">
-          <Button
-            text="Workouts"
-            @tap="$navigateTo(links.Workouts)"
-            height="100"
-            row="0"
-            column="0"
-          />
-          <Button
-            text="Exercises"
-            @tap="$navigateTo(links.Exercises)"
-            height="100"
-            row="0"
-            column="1"
-          />
-          <Button
-            text="Analysis"
-            @tap="$navigateTo(links.Analysis)"
-            height="100"
-            row="0"
-            column="2"
-          />
-          <Button
-            text="BodyTracker"
-            @tap="$navigateTo(links.BodyTracker)"
-            height="100"
-            row="1"
-            column="0"
-          />
-          <Button
-            text="Calendar"
-            @tap="$navigateTo(links.Calendar)"
-            height="100"
-            row="1"
-            column="1"
-          />
-          <Button
-            text="Goals"
-            @tap="$navigateTo(links.Goals)"
-            height="100"
-            row="1"
-            column="2"
-          />
-          <Button
-            text="Records"
-            @tap="$navigateTo(links.Records)"
-            height="100"
-            row="2"
-            column="0"
-          />
-          <Button
-            text="Settings"
-            @tap="$navigateTo(links.Settings)"
-            height="100"
-            row="2"
-            column="1"
-          />
-        </GridLayout>
+    <RadSideDrawer ref="drawer">
+      <StackLayout ~drawerContent backgroundColor="#ffffff">
+        <Label class="drawer-header" text="Drawer" />
+
+        <Label class="drawer-item" text="Item 1" />
+        <Label class="drawer-item" text="Item 2" />
+        <Label class="drawer-item" text="Item 3" />
       </StackLayout>
-    </GridLayout>
+
+      <GridLayout ~mainContent>
+        <StackLayout>
+          <Label class="info">
+            <FormattedString>
+              <Span class="fas" text.decode="&#xf135; " />
+              <Span :text="message" />
+            </FormattedString>
+          </Label>
+          <GridLayout columns="*, *, *" rows="auto, auto, auto">
+            <Button
+              text="Workouts"
+              @tap="$navigateTo(links.Workouts)"
+              height="100"
+              row="0"
+              column="0"
+            />
+            <Button
+              text="Exercises"
+              @tap="$navigateTo(links.Exercises)"
+              height="100"
+              row="0"
+              column="1"
+            />
+            <Button
+              text="Analysis"
+              @tap="$navigateTo(links.Analysis)"
+              height="100"
+              row="0"
+              column="2"
+            />
+            <Button
+              text="Body Tracker"
+              @tap="$navigateTo(links.BodyTracker)"
+              height="100"
+              row="1"
+              column="0"
+            />
+            <Button
+              text="Calendar"
+              @tap="$navigateTo(links.Calendar)"
+              height="100"
+              row="1"
+              column="1"
+            />
+            <Button
+              text="Goals"
+              @tap="$navigateTo(links.Goals)"
+              height="100"
+              row="1"
+              column="2"
+            />
+            <Button
+              text="Records"
+              @tap="$navigateTo(links.Records)"
+              height="100"
+              row="2"
+              column="0"
+            />
+            <Button
+              text="Settings"
+              @tap="$navigateTo(links.Settings)"
+              height="100"
+              row="2"
+              column="1"
+            />
+          </GridLayout>
+        </StackLayout>
+      </GridLayout>
+    </RadSideDrawer>
   </Page>
 </template>
 
@@ -83,6 +100,8 @@ import Goals from "./Goals";
 import Records from "./Records";
 import Settings from "./Settings";
 
+import RadSideDrawer from "nativescript-ui-sidedrawer/vue";
+
 export default {
   name: "Home",
   components: {
@@ -93,9 +112,11 @@ export default {
     Goals,
     Records,
     Settings
+    // RadSideDrawer
   },
   data() {
     return {
+      msg: "Hello there world",
       links: {
         Exercises,
         Workouts,
@@ -224,7 +245,6 @@ export default {
   methods: {
     isHomePage() {
       return true;
-      // this.$
     },
     onItemTap(e) {
       console.log("Tapped an item!");
@@ -233,6 +253,17 @@ export default {
     },
     getComponentByName(compName) {
       return this.components.filter(c => c.name === compName);
+    },
+    onTapHamburger() {
+      console.log("Tapping hamburger!");
+      console.log("nativeView: ", this.$refs.drawer.nativeView);
+      this.$refs.drawer.nativeView.showDrawer();
+    },
+    onOpenDrawerTap() {
+      this.$refs.drawer.nativeView.showDrawer();
+    },
+    onCloseDrawerTap() {
+      this.$refs.drawer.nativeView.closeDrawer();
     }
   },
   computed: {
