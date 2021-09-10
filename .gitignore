@@ -28,3 +28,5 @@ typings/
 !.vscode/extensions.json
 .editorconfig
 
+.env
+.env.local
