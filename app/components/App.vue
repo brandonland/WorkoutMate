@@ -1,5 +1,5 @@
 <template>
-  <Page class="ns-dark">
+  <Page :class="[getIsDarkTheme ? 'ns-dark' : '']">
     <ActionBar :title="message">
       <ActionItem
         @tap="onTapHamburger()"
@@ -268,6 +268,9 @@ export default {
       } else {
         this.$refs.drawer.nativeView.closeDrawer();
       }
+    },
+    getIsDarkTheme() {
+      return this.$store.state.isDarkTheme;
     }
   },
   computed: {
