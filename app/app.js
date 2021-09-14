@@ -10,13 +10,14 @@ if (process.env.NODE_ENV !== "production") {
 
 Vue.config.silent = process.env.NODE_ENV === "production";
 
-Vue.registerElement(
-  "RadSideDrawer",
-  () => require("nativescript-ui-sidedrawer/vue").RadSideDrawer
-);
+// Vue.registerElement(
+//   "RadSideDrawer",
+//   () => require("nativescript-ui-sidedrawer/vue").RadSideDrawer
+// );
 
 Vue.use(RadSideDrawer);
 
 new Vue({
-  render: h => h("frame", [h(App)])
+  //   render: h => h("frame", [h(App)])
+  render: h => h(App)
 }).$start();

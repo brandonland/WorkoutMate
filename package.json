@@ -1,15 +1,15 @@
 {
-  "name": "@nativescript/template-blank-vue",
+  "name": "workoutmate",
   "main": "app/app.js",
-  "displayName": "Blank",
+  "displayName": "WorkoutMate",
   "version": "8.0.4",
-  "description": "NativeScript Application",
-  "author": "NativeScript Team <oss@nativescript.org>",
-  "license": "SEE LICENSE IN <your-license-filename>",
-  "repository": "<fill-your-repository-here>",
-  "homepage": "https://github.com/NativeScript/nativescript-app-templates",
+  "description": "An exercise tracking app",
+  "author": "Brandon <brandon@brandon.land>",
+  "license": "SEE LICENSE IN <LICENSE>",
+  "repository": "https://github.com/brandonland/WorkoutMate",
+  "homepage": "https://github.com/brandonland/WorkoutMate",
   "bugs": {
-    "url": "https://github.com/NativeScript/NativeScript/issues"
+    "url": "https://github.com/brandonland/WorkoutMate/issues"
   },
   "publishConfig": {
     "access": "public"
@@ -45,7 +45,8 @@
     "nativescript-ui-sidedrawer": "^10.0.1",
     "nativescript-vue": "~2.9.0",
     "nativescript-vue-devtools": "^1.5.1",
-    "vuex": "^3.6.2"
+    "vuex": "^3.6.2",
+    "rxjs": "~6.6.0"
   },
   "devDependencies": {
     "@nativescript/android": "8.0.0",

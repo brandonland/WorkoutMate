@@ -1,11 +1,20 @@
 <template>
-  <Page>
+  <Page class="page" :class="[isDarkTheme ? 'ns-dark' : '']">
     <ActionBar :title="message">
       <NavigationButton
         text="Go back"
         android.systemIcon="ic_menu_back"
         @tap="$navigateBack"
       />
+      <GridLayout columns="*, 50">
+        <Label class="action-bar-title" text="Home" colSpan="2" col="0" />
+        <Label
+          class="fas hamburger"
+          text.decode="&#xf0c9;"
+          col="2"
+          @tap="onDrawerButtonTap"
+        />
+      </GridLayout>
     </ActionBar>
 
     <GridLayout>
@@ -17,7 +26,7 @@
       </Label>
       <Label class="description" text="Work in progress" />
     </GridLayout>
-    <FlexboxLayout flexDirection="column" backgroundColor="#fcfcfc">
+    <FlexboxLayout flexDirection="column">
       <Label height="70">
         <FormattedString>
           <Span class="fas" text.decode="&#xf135; " />
@@ -34,6 +43,9 @@
 </template>
 
 <script>
+import * as utils from "~/shared/utils";
+import { SelectedPageService } from "../shared/selected-page-service";
+
 import Exercise from "./Exercise";
 
 export default {
@@ -50,6 +62,17 @@ export default {
     message() {
       return "Exercises";
     }
+  },
+  mounted() {
+    SelectedPageService.getInstance().updateSelectedPage("Search");
+  },
+  methods: {
+    onDrawerButtonTap() {
+      utils.showDrawer();
+    },
+    isDarkTheme() {
+      return this.$store.state.isDarkTheme;
+    }
   }
 };
 </script>
@@ -57,9 +80,9 @@ export default {
 <style scoped lang="scss">
 @import "@nativescript/theme/scss/variables/blue";
 
-.fas {
-  @include colorize($color: accent);
-}
+// .fas {
+//   @include colorize($color: accent);
+// }
 
 .info {
   font-size: 20;
