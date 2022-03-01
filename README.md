@@ -31,8 +31,7 @@ involve _gamification_ to spice things up as a sort of end-game feature (after t
   - [ ] Create custom exercises/moves/stretches, adding to the preexisting list of moves.
   - [ ] Create supersets.
 - [ ] Customizable rest timers
-  - This will be flexible in that: timers can be "injected" into the workout. The user will be able to add a rest timer to a workout as if it were an
-  exercise/move itself. While maintaining that flexibility, it should also be easy for the user to "edit all" rest timers. Perhaps there can be multiple
+  - This will be flexible in that: timers can be inserted into the list of moves of a workout. The user will be able to add a rest timer to a workout as if it were an exercise/move itself. An app that pulls this off already exists: While maintaining that flexibility, it should also be easy for the user to "edit all" rest timers. Perhaps there can be multiple
   types of rest timers -- one called a mid-set timer, and one called a mid-workout timer... Flexible, yet simple. An interesting idea to include in the
   long-term planning aspect of this would be to allow the user to optionally automatically decrease the rest timer by `x` each time the workout is repeated.
   This is one way to gradually intensify workout sessions to improve endurance over time.
