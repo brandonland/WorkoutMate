@@ -1,28 +1,25 @@
 # WorkoutMate
 
-## **This app is not yet ready for use.**
+WorkoutMate is a [free and open source](https://en.wikipedia.org/wiki/Free_and_open-source_software) (FOSS) Android app, ~~written in JavaScript via Svelte Native~~ soon-to-be written in Kotlin for Android, inspired by FitNotes.
 
+### **This app is not yet ready for use.**
 ### A complete scrap and rewrite using Kotlin (for Android) is on its way.
+
 The reasons to move in this direction are simple:
 - **NativeScript is a massive framework.**
     It gets bloated and unnecessarily complex *real* fast. This makes it too easy to break the [KISS principle](https://en.wikipedia.org/wiki/KISS_principle) in my opinion.
 - **NativeScript has a steep learning curve.**
     I could put the same effort into learning a programming language that more directly speaks to Android
+- **I'm learning Kotlin anyway.**
+    Kotlin compiles directly to Java. It is a more direct approach than using a JS framework like React Native or Nativescript. This will translate into better performance and (in my opinion) better code.
 
 ------------
 
 ## Philosophy
 
-WorkoutMate is a [free and open source](https://en.wikipedia.org/wiki/Free_and_open-source_software) (FOSS) Android app, ~~written in JavaScript via Svelte Native~~ soon-to-be written in Kotlin for Android, inspired by FitNotes.
-
 As a former avid exercise enthusiast and gym rat, I have for many years written down my progress during planned workouts. Part of my love for exercise was the evolution of my processes over time. I love to keep track of my progress; it keeps me goal-oriented and self-competitive. Keeping a written log is a crucial piece to reaching goals of any kind, let alone fitness goals. I will attempt to bring this idea/philosophy into the app itself. There exist many different types of exercises (and ways to exercise) though; and different ways to track progress... I want this app to be flexible for most exercise programs, but I don't want to also overcomplicate the app by making it too feature-rich. There will probably be a middle ground.
 
 Because this is FOSS software, your data is _your_ data, solely for your own benefit, and _you are not the product_. If someday I plan to fund this project, I will likely go for a business model that has "premium", unlockable, paid features. I do plan on also having this listed on [F-Droid](https://f-droid.org/) when it is ready for production use. I believe that the importance of privacy in this day and age is vastly underrated and misunderstood. Most software today aims to profit over data at the cost of everyone's privacy — this project will not do such a thing.
-
-## Ambition
-
-I want this app to just as much be a helper during workouts as it will be for big-picture, long-term planning and the setting of goals. There may eventually
-involve _gamification_ to spice things up as a sort of end-game feature (after the app's core features are implemented). 
 
 ## Features
 
