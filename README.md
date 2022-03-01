@@ -11,6 +11,8 @@ The reasons to move in this direction are simple:
 
 ------------
 
+## Philosophy
+
 WorkoutMate is a [free and open source](https://en.wikipedia.org/wiki/Free_and_open-source_software) (FOSS) Android app, ~~written in JavaScript via Svelte Native~~ soon-to-be written in Kotlin for Android, inspired by FitNotes.
 
 As a former avid exercise enthusiast and gym rat, I have for many years written down my progress during planned workouts. Part of my love for exercise was the evolution of my processes over time. I love to keep track of my progress; it keeps me goal-oriented and self-competitive. Keeping a written log is a crucial piece to reaching goals of any kind, let alone fitness goals. I will attempt to bring this idea/philosophy into the app itself. There exist many different types of exercises (and ways to exercise) though; and different ways to track progress... I want this app to be flexible for most exercise programs, but I don't want to also overcomplicate the app by making it too feature-rich. There will probably be a middle ground.
